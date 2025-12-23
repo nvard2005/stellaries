@@ -454,53 +454,127 @@ padding: 5%;}
   background: #e30613;
   display: block;
   margin-top: 8px;
+}/* SECTION */
+.key-products {
+    background: #fff;
+    padding: 120px 0;
 }
 
+/* CONTAINER */
+.key-products .container {
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+/* TITLE */
+.key-products h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 80px;
+    color: #18181B;
+}
+
+/* ROW */
 .key-products-info {
-  display: grid;
-  grid-template-columns: 520px 1fr;
-  align-items: center;
-  gap: 80px;
-  margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 520px 420px;
+    column-gap: 80px;
+    align-items: flex-start;
+    margin-bottom: 120px;
 }
 
+/* REVERSED ROW */
 .key-products-info.reverse {
-  grid-template-columns: 1fr 520px;
+    grid-template-columns: 420px 520px;
+}
+
+/* IMAGE */
+.key-products-info figure {
+    margin: 0;
 }
 
 .key-products-info img {
-  width: 100%;
-  height: 360px;
-  object-fit: cover;
-  border-radius: 4px;
+    width: 520px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 2px;
+    display: block;
 }
 
+/* TEXT BLOCK */
 .products-text {
-  max-width: 420px;
+    max-width: 420px;
+    padding-top: 8px;
 }
 
+/* NUMBER */
 .products-text .number {
-  font-size: 14px;
-  color: #b5b5b5;
-  display: block;
-  margin-bottom: 12px;
+    display: block;
+    font-size: 14px;
+    color: #B5B5B5;
+    margin-bottom: 12px;
 }
 
+/* TITLE */
 .products-text h3 {
-  color: #e30613;
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 500;
+    color: #E30613;
+    margin-bottom: 12px;
 }
 
+/* DESCRIPTION */
 .products-text p {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+
+    .key-products {
+        padding: 80px 0;
+    }
+
+    .key-products h2 {
+        font-size: 26px;
+        margin-bottom: 48px;
+    }
+
+    .key-products-info,
+    .key-products-info.reverse {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 72px;
+    }
+
+    .key-products-info img {
+        width: 100%;
+        height: 220px;
+    }
+
+    .products-text {
+        max-width: 100%;
+        padding-top: 0;
+    }
+
+    .products-text .number {
+        font-size: 13px;
+    }
+
+    .products-text h3 {
+        font-size: 20px;
+    }
+
+    .products-text p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
 }
 
 
-/* LEFT SIDE */
+
 .track-record h2 {
     font-size: 48px;
     font-weight: 300;
@@ -511,7 +585,7 @@ padding: 5%;}
 
 .track-record h2 span {
     display: block;
-    color: #e53935; /* red EXCELLENCE */
+    color: #e53935; 
     font-weight: 700;
 }
 
