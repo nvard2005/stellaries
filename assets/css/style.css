@@ -439,11 +439,6 @@ padding: 5%;}
 }
 
 
-
-.container {
-  padding: 5% 10%;
-}
-
 .section-title {
   color: #e30613;
   font-size: 28px;
@@ -715,7 +710,9 @@ padding: 5%;}
     display: block;
     margin-top: 10px;
 }
-
+.our-team strong {
+    font-weight: 600;
+}
 /* TEXT */
 .our-team p {
     font-size: 15px;
