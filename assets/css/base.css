@@ -10,5 +10,6 @@
 
         --radius-md: 12px;
         --radius-lg: 24px;
-        --ff-hervetica: 'Helvetica', sans-serif;
+    --ff-body: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --ff-heading: "Cormorant Infant", Georgia, serif;
     }

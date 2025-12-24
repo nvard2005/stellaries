@@ -1,36 +1,72 @@
-.hero {
-    background-image:
-        url("/assets/media/background.png"),  
-          url("/assets/media/background2.png"),    /* overlay / transparent image */
+.hero-wrapper {
+    position: relative;
+    background:
+        /* grid overlay */
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+
+        /* dark radial gradient */
         radial-gradient(
             120% 120% at 50% 0%,
             #1f2024 0%,
-            #141518 60%,
+            #141518 55%,
             #0f1013 100%
-        );     
+        ),
 
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    background-position: center, center, center;
-    background-size: contain, cover, cover;
+        /* background image */
+        url("/assets/media/background.png");
 
+    background-size:
+        48px 48px,
+        48px 48px,
+        cover,
+        cover;
+
+    background-position: center;
+    background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
+/* =========================
+   HEADER
+========================= */
+.site-header {
+    position: absolute;
+    top: 32px;
+    left: 64px;
+    z-index: 3;
+}
 
+.site-header h2 {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #e5e7eb;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+    background: transparent;
+}
 
 .hero-inner {
-    margin: 0 auto;
-    padding-top: 160px;
+    padding: 120px 64px;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
+    grid-template-columns: 1.3fr 0.7fr;
+    align-items: center;
+    gap: 96px;
     position: relative;
     z-index: 2;
 }
 
+/* =========================
+   HERO TEXT
+========================= */
 .hero-info h1 {
-    font-size: var(--fs-lg);
-    font-weight: 600;
-    line-height: 1.15;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.1;
     margin-bottom: 24px;
     max-width: 520px;
 }
@@ -38,49 +74,60 @@
 .hero-info p {
     font-size: 14px;
     line-height: 24px;
-    color: #D1D5DB;
+    color: #9ca3af;
     max-width: 440px;
     margin-bottom: 32px;
 }
 
+/* =========================
+   BUTTON
+========================= */
 .hero-info .services {
-    background: #DC2626;
-    color: #FFFFFF;
+    background: #dc2626;
+    color: #ffffff;
     border: none;
-    padding: 12px 26px;
+    padding: 12px 24px;
     font-size: 12px;
     font-weight: 600;
+    border-radius: 2px;
     cursor: pointer;
     transition: background 0.3s ease;
 }
 
 .hero-info .services:hover {
-    background: #B91C1C;
+    background: #b91c1c;
 }
 
+/* =========================
+   VIDEO CARD
+========================= */
 .section-video {
     position: relative;
-    width: 360px;
+    width: 380px;
     height: 240px;
-    background: #0F172A;
-    align-self: center;
+    background: #020617;
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 .section-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
+/* =========================
+   PLAY BUTTON
+========================= */
 .play-btn {
     position: absolute;
     inset: 0;
     margin: auto;
-    width: 56px;
-    height: 56px;
-    background: #DC2626;
+    width: 64px;
+    height: 64px;
+    background: #dc2626;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -89,11 +136,15 @@
 
 .play-btn::after {
     content: "";
-    border-left: 12px solid #fff;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    margin-left: 4px;
+    border-left: 14px solid #ffffff;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    margin-left: 3px;
 }
+
+/* =========================
+   VIDEO INFO
+========================= */
 .video-info {
     position: absolute;
     bottom: 16px;
@@ -103,29 +154,43 @@
 .video-info h3 {
     font-size: 12px;
     font-weight: 600;
-    margin: 0 0 4px;
+    margin-bottom: 4px;
 }
 
 .video-p {
     font-size: 11px;
-    color: #9CA3AF;
-    margin: 0;
+    color: #9ca3af;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 1024px) {
     .hero-inner {
         grid-template-columns: 1fr;
+        padding-top: 140px;
         gap: 48px;
-        padding-top: 120px;
     }
 
     .section-video {
         width: 100%;
         max-width: 420px;
     }
+
+    .site-header {
+        left: 32px;
+    }
 }
 
+@media (max-width: 640px) {
+    .hero-inner {
+        padding: 120px 24px 0;
+    }
 
+    .hero-info h1 {
+        font-size: 40px;
+    }
+}
 .about-us-title {
     font-size: 48px;
     font-weight: 600;
@@ -458,18 +523,30 @@
   .right-section {
     width: 100%;
   }
+}.key-products {
+    background: #ffffff;
+}
+.mk{
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+.key-products-inner {
+    padding: 80px 144px 120px;
+    display: flex;
+    flex-direction: column;
 }
 
 .key-products h2 {
     position: relative;
-    display: inline-block;
     font-size: 32px;
     font-weight: 600;
     color: #E30613;
     letter-spacing: -0.02em;
     line-height: 1.2;
-    margin: 0 0 72px 0;
-    padding-bottom: 10px;
+    margin-bottom: 96px;
+    padding-bottom: 12px;
 }
 
 .key-products h2::after {
@@ -477,7 +554,6 @@
     position: absolute;
     left: 0;
     bottom: 0;
-
     width: 64px;
     height: 2px;
     background-color: #E30613;
@@ -485,24 +561,32 @@
 
 .key-products-info {
     display: grid;
-    grid-template-columns: 520px 420px;
-    column-gap: 96px;
-    align-items: center;
-    margin-bottom: 96px;
+    grid-template-columns: 1fr 1fr;   /* Equal width columns */
+    gap: 80px;
+    align-items: stretch;             /* Equal height for both columns */
+    min-height: 500px;                /* Row height */
+    margin-bottom: 120px;
 }
 
+/* Reverse layout for every other item */
 .key-products-info.reverse {
-     grid-column: 2;
+    direction: rtl;
 }
-.key-products-info.reverse .products-text {
-    grid-column: 1;
+
+.key-products-info.reverse > * {
+    direction: ltr;
 }
+
+.key-products-info figure,
+.products-text {
+    height: 100%;
+    display: flex;
+}
+
 .key-products-info figure {
-    width: 544px;
-    height: 500px;
     margin: 0;
-    flex-shrink: 0;
 }
+
 .key-products-info img {
     width: 100%;
     height: 100%;
@@ -511,30 +595,29 @@
 }
 
 .products-text {
-    max-width: 420px;
+    flex-direction: column;
+    justify-content: center;  /* Vertically center text */
+    max-width: none;          /* Allow full height */
 }
 
 .products-text .number {
-    display: block;
     font-size: 14px;
     font-weight: 400;
     color: #B5B5B5;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .products-text h3 {
-    display: inline-block;
     position: relative;
-
+    display: inline-block;
     font-size: 22px;
     font-weight: 600;
     color: #E30613;
-
     letter-spacing: -0.01em;
     line-height: 1.3;
-
-    margin: 0 0 10px 0;
-    padding-bottom: 3px;
+    margin-bottom: 16px;
+    padding-bottom: 4px;
 }
 
 .products-text h3::after {
@@ -542,7 +625,6 @@
     position: absolute;
     left: 0;
     bottom: 0;
-
     width: 100%;
     height: 1px;
     background-color: #E30613;
@@ -555,31 +637,26 @@
     max-width: 380px;
 }
 
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
+    .key-products-inner {
+        padding: 64px 24px;
+    }
 
     .key-products-info {
         grid-template-columns: 1fr;
-        row-gap: 16px;
-        margin-bottom: 56px;
+        min-height: auto;
+        gap: 24px;
+        margin-bottom: 72px;
     }
 
-    /* Force text first */
-    .key-products-info .products-text {
-        order: 1;
+    .key-products-info figure,
+    .products-text {
+        height: auto;
     }
 
-    /* Force image second */
-    .key-products-info figure {
-        order: 2;
-        height: 220px;
-        width: 100%;
-    }
-
-    /* Completely neutralize reverse */
-    .key-products-info.reverse .products-text,
-    .key-products-info.reverse figure {
-        order: initial;
+    .products-text {
+        justify-content: flex-start; /* Align text top on mobile */
     }
 }
 
@@ -594,7 +671,7 @@
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 120px;
-    padding: 120px 0;
+    padding: 115px 140px;
     align-items: start;
 }
 
@@ -611,10 +688,9 @@
 }
 
 .track-desc {
-    font-size: 13px;
+    font-size: 18px;
     line-height: 1.8;
     color: #d4d4d8;
-    max-width: 460px;
     margin-bottom: 24px;
 }
 
@@ -643,7 +719,7 @@
 }
 
 .name-partner h3 {
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -696,9 +772,11 @@ align-items: flex-start;
 padding: 100px 180px;
 gap: 40px;
 }
-
+.why-choose-inner{
+    padding: 160px 80px;
+}
 .section-tag {
-    font-size: 12px;
+    font-size: 20px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: #9CA3AF;
@@ -712,7 +790,7 @@ gap: 40px;
     padding: 5% 0;
 }
 .stellariesh2{
-    font-size: var(--fs-md);
+    font-size: 48px;
     color: white;
 }
 .stellariesh2::after{
@@ -750,19 +828,19 @@ gap: 40px;
 
 .stellaries-cell p:first-of-type {
     font-size: 12px;
-    color: #6B7280;
+    color: #9F9FA9;
     margin: 0 0 12px;
 }
 
 .stellaries-cell h3 {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 600;
     color: #FFFFFF;
     margin: 0 0 12px;
 }
 
 .stellaries-cell p:last-of-type {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
     color: #9CA3AF;
     margin: 0;
@@ -866,9 +944,13 @@ gap: 40px;
     transform: translateY(-6px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
+.values-inner
+{
+    padding: 160px 80px;
+}
 .h2ofvalues{  position: relative;
     display: inline-block;
-    font-size: 32px;
+    font-size: 48px;
     font-weight: 600;
     color: #E30613;
     letter-spacing: -0.02em;
@@ -889,8 +971,8 @@ gap: 40px;
 }
 
 .img-background {
-    width: 52px;
-    height: 52px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: #d71920;
     display: flex;
@@ -900,15 +982,16 @@ gap: 40px;
 }
 
 .img-background img {
-    width: 22px;
-    height: 22px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     filter: brightness(0) invert(1);
 }
 
 .values-cell h3 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
     color: #d71920;
     margin-bottom: 12px;
 }

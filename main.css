@@ -1,36 +1,70 @@
+/* =========================
+   CORMORANT INFANT
+========================= */
+
 /* Regular */
 @font-face {
-    font-family: 'Helvetica';
-    src: url('./assets/fonts/helvetica/NimbusSanL-Reg.otf') format('opentype');
+    font-family: "Cormorant Infant";
+    src: url("./assets/fonts/cormorant-infant/CormorantInfant-Regular.woff2") format("woff2");
     font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: "Cormorant Infant";
+    src: url("./assets/fonts/cormorant-infant/CormorantInfant-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* SemiBold */
+@font-face {
+    font-family: "Cormorant Infant";
+    src: url("./assets/fonts/cormorant-infant/CormorantInfant-SemiBold.woff2") format("woff2");
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 
 /* Bold */
 @font-face {
-    font-family: 'Helvetica';
-    src: url('./assets/fonts/helvetica/NimbusSanL-Bol.otf') format('opentype');
+    font-family: "Cormorant Infant";
+    src: url("./assets/fonts/cormorant-infant/CormorantInfant-Bold.woff2") format("woff2");
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
+/* =========================
+   RALEWAY
+========================= */
 
-/* Italic */
+/* Regular */
 @font-face {
-    font-family: 'Helvetica';
-    src: url('./assets/fonts/helvetica/NimbusSanL-Reg.otf') format('opentype');
+    font-family: "Raleway";
+    src: url("./assets/fonts/raleway/Raleway-Regular.woff2") format("woff2");
     font-weight: 400;
-    font-style: italic;
+    font-style: normal;
     font-display: swap;
 }
 
-/* Bold Italic */
+/* Medium */
 @font-face {
-    font-family: 'Helvetica';
-    src: url('./assets/fonts/helvetica/NimbusSanL-BolIta.otf') format('opentype');
+    font-family: "Raleway";
+    src: url("./assets/fonts/raleway/Raleway-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: "Raleway";
+    src: url("./assets/fonts/raleway/Raleway-Bold.woff2") format("woff2");
     font-weight: 700;
-    font-style: italic;
+    font-style: normal;
     font-display: swap;
 }
 
@@ -59,7 +93,7 @@ body {
     display: flex;
     flex-direction: column;
     color: var(--v3-dark);
-    font-family: var(--ff-hervetica);
+    font-family: var(--ff-body);
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5;
