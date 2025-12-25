@@ -364,11 +364,12 @@
 .serviceofh2 {
     width: 300px;
     height: 93px;
+    font-size: 48px;
     font-weight: 600;
     line-height: 93px;
     color: #000000;
     margin: 0 0 48px 0;                                  
-      border-bottom: solid rgb(15, 15, 15);
+    border-bottom: solid rgb(133, 133, 133);
 
 }
 
@@ -523,7 +524,118 @@
   .right-section {
     width: 100%;
   }
-}.key-products {
+}
+
+
+.group2 {
+    width: 100%;
+    max-width: 1441px;
+    height: 844.13px;
+    position: relative;
+}
+
+/* =========================
+   IMAGE MASK / CUT
+   ========================= */
+
+.group2 figure {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+
+    /* Diagonal cut (matches Figma) */
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+
+
+.group2::before {
+    content: "";
+    position: absolute;
+    width: 1700px;         
+    height: 4px;
+    left: -130px;           /* prevents white gap */
+    background-color: #C62828;
+    transform: rotate(-2deg);
+    transform-origin: center;
+    z-index: 2;
+}
+
+.fueling-section {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    min-height: 700px;
+    overflow: hidden;
+    background: url(/assets/media/backgroundd.png);
+    background-color: gray;
+    background-position: 0px 157px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+
+
+.fueling-content {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    transform: translateY(-50%);
+    max-width: 900px;
+    color: #fff;
+}
+
+.fueling-content h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 72px;
+    line-height: 1.05;
+    font-weight: 300;
+    margin: 0 0 24px;
+}
+
+.fueling-content h1 strong {
+    font-weight: 800;
+}
+
+/* =========================
+   SUBTEXT
+   ========================= */
+
+.fueling-content p {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin: 0;
+}
+
+/* =========================
+   DECORATIVE SLASHES
+   ========================= */
+
+.decor {
+    position: absolute;
+    font-size: 48px;
+    font-weight: 800;
+    color: #C62828;
+}
+
+.decor-left {
+    top: -10px;
+    left: -50px;
+}
+
+.decor-right {
+    bottom: 100px;
+    right: -60px;
+}
+
+.key-products {
     background: #ffffff;
 }
 .mk{
@@ -567,8 +679,6 @@
     min-height: 500px;                /* Row height */
     margin-bottom: 120px;
 }
-
-/* Reverse layout for every other item */
 .key-products-info.reverse {
     direction: rtl;
 }
@@ -625,7 +735,7 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 20%;
     height: 1px;
     background-color: #E30613;
 }
@@ -637,7 +747,6 @@
     max-width: 380px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .key-products-inner {
         padding: 64px 24px;
