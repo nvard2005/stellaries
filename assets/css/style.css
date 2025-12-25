@@ -1,21 +1,15 @@
 .hero-wrapper {
     position: relative;
     background:
-        /* grid overlay */
         linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
-
-        /* dark radial gradient */
         radial-gradient(
             120% 120% at 50% 0%,
             #1f2024 0%,
             #141518 55%,
             #0f1013 100%
         ),
-
-        /* background image */
         url("/assets/media/background.png");
-
     background-size:
         48px 48px,
         48px 48px,
@@ -207,6 +201,19 @@
     background-color: #e53935;
     margin-top: 6px;
 }
+/* =========================
+   BASE FADE-UP ANIMATION
+========================= */
+.about-us .fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-us .fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .about-us-info {
     font-size: 20px;
@@ -239,14 +246,34 @@
     display: inline-block;
 }
 
+/* underline animation */
 .mission-visionh2::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -6px;
-    width: 64px;
+    width: 100%;
     height: 2px;
     background: #FFFFFF;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s ease;
+}
+
+/* underline visible */
+.mission-vision .show .mission-visionh2::after {
+    transform: scaleX(1);
+}
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .our-mission-info,
@@ -264,12 +291,32 @@
   padding: var(--space) 0;
 }
 
-
 .dubai-hub h2 {
   font-size: 48px;
   font-weight: 600;
   color: #e50914;
   margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
+
+/* underline */
+.dubai-hub h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 3px;
+  background-color: #e50914;
+
+  /* animation setup */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease;
+}
+.dubai-hub.show h2::after {
+  transform: scaleX(1);
 }
 
 .dubai-hub-info {
@@ -280,6 +327,7 @@
 
 .hub-features {
   position: relative;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 64px;
@@ -294,7 +342,18 @@
   height: 1px;
   background: #d1d5db;
   z-index: 0;
+
+  /* animation setup */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.2s ease;
 }
+
+/* when visible */
+.hub-line.draw {
+  transform: scaleX(1);
+}
+
 
 .hub-item {
   text-align: center;
@@ -355,38 +414,108 @@
   }
 }
 
+/* =========================
+   SCROLL ANIMATION BASE
+========================= */
 
-.services {
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay for hub items */
+.hub-item:nth-child(1) { transition-delay: 0.2s; }
+.hub-item:nth-child(2) { transition-delay: 0.4s; }
+.hub-item:nth-child(3) { transition-delay: 0.6s; }
+
+/* =========================
+   LINE DRAW ANIMATION
+========================= */
+
+.hub-line {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease;
+}
+
+.hub-line.show {
+  transform: scaleX(1);
+}
+
+/* =========================
+   ICON HOVER EFFECT
+========================= */
+
+.hub-icon {
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.hub-item:hover .hub-icon {
+  border-color: #e50914;
+  transform: scale(1.05);
+}
+
+
+
+.servicess {
     background: #ffffff;
 
 }
 
 .serviceofh2 {
-    width: 300px;
-    height: 93px;
     font-size: 48px;
     font-weight: 600;
     line-height: 93px;
     color: #000000;
-    margin: 0 0 48px 0;                                  
-    border-bottom: solid rgb(133, 133, 133);
-
+    margin: 0 0 48px 0;
+    position: relative;
+    display: inline-block;
 }
 
-.our-services-inner .container {
+.serviceofh2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #858585;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s ease;
+}
+
+/* when visible */
+.servicess.show .serviceofh2::after {
+    transform: scaleX(1);
+}
+
+
+.our-servicess-inner .container {
     display: grid;
-    grid-template-columns: 1fr 639px;  /* left + right-section */
+    grid-template-columns: 1fr 639px;
     column-gap: 64px;
     position: relative;
 }
 
-/* ========== LEFT TEXT ========== */
+
 .our-service-item {
     max-width: 360px;
     font-size: 18px;
     line-height: 29px;
     color: #3F3F47;
+
+    position: sticky;
+    top: 120px; /* space from top while scrolling */
 }
+
 
 /* ========== RIGHT SECTION ========== */
 .right-section {
@@ -559,7 +688,7 @@
     position: absolute;
     width: 1700px;         
     height: 4px;
-    left: -130px;           /* prevents white gap */
+    left: -130px;          
     background-color: #C62828;
     transform: rotate(-2deg);
     transform-origin: center;
@@ -638,12 +767,7 @@
 .key-products {
     background: #ffffff;
 }
-.mk{
-    width: 100%;
-    display: flex;
-    align-items: center;
 
-}
 .key-products-inner {
     padding: 80px 144px 120px;
     display: flex;
@@ -651,24 +775,44 @@
 }
 
 .key-products h2 {
-    position: relative;
-    font-size: 32px;
+    font-size: 48px;
     font-weight: 600;
-    color: #E30613;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 96px;
-    padding-bottom: 12px;
+    color: #e50914;
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
 }
 
 .key-products h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 64px;
-    height: 2px;
-    background-color: #E30613;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;       /* distance from text */
+  width: 100%;        /* full width */
+  height: 2px;        /* thickness */
+  background: #dc2626; /* red color */
+  transform: scaleX(0);   /* start hidden */
+  transform-origin: left; /* grow from left */
+  transition: transform 0.8s ease; /* smooth animation */
+}
+
+/* animate underline when h2 has .show */
+.key-products.show::after {
+  transform: scaleX(1);
+}
+.key-products .show h2::after {
+    transform: scaleX(1);
+}
+
+.key-products .fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.key-products .fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .key-products-info {
@@ -765,7 +909,7 @@
     }
 
     .products-text {
-        justify-content: flex-start; /* Align text top on mobile */
+        justify-content: flex-start; 
     }
 }
 
@@ -856,6 +1000,24 @@
         grid-template-columns: 1fr;
     }
 }
+/* =========================
+   BASE FADE-UP ANIMATION
+========================= */
+.excellence .fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.excellence .fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: stagger each partner slightly more */
+.partners .fade-up {
+  transition-delay: 0s; /* we'll stagger in JS */
+}
 
 
 .why-choose-stellaries {
@@ -924,7 +1086,7 @@ gap: 40px;
 
 .stellaries-cell:hover {
     transform: translateY(-6px);
-    border-color: rgba(255,255,255,0.2);
+    border-color: rgba(114, 0, 0, 0.984);
 }
 
 .stellaries-cell img {
@@ -992,21 +1154,47 @@ gap: 40px;
     align-items: center;
 }
 
+/* H2 Underline */
 .our-team h2 {
-    font-size: 32px;
-    font-weight: 600;
-    color: #DC2626;
-    margin-bottom: 24px;
+ font-size: 48px;
+  font-weight: 600;
+  color: #e50914;
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
 }
 
 .our-team h2::after {
-    content: "";
-    width: 56px;
-    height: 2px;
-    background: #DC2626;
-    display: block;
-    margin-top: 10px;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #dc2626;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease;
 }
+
+/* Show underline when visible */
+.our-team h2.show::after {
+  transform: scaleX(1);
+}
+
+/* Fade-up for text */
+.our-team .fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.our-team .fade-up.show {
+  opacity: 1;
+  margin: 5px;
+  transform: translateY(0);
+}
+
 .our-team strong {
     font-weight: 600;
 }
@@ -1049,10 +1237,7 @@ gap: 40px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.values-cell:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
+
 .values-inner
 {
     padding: 160px 80px;
