@@ -121,3 +121,29 @@ const teamObserver = new IntersectionObserver(
 );
 
 teamItems.forEach(item => teamObserver.observe(item));
+// H2 + Left + Right fade-up observer
+const serviceSection = document.querySelector('.servicess');
+const serviceItems = document.querySelectorAll('.servicess .fade-up');
+const serviceH3s = document.querySelectorAll('.our-service-info h3');
+
+const serviceObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('show');
+
+          // For H3 underline
+          if(entry.target.tagName === "H3"){
+            entry.target.classList.add('show');
+          }
+        }, index * 200); // stagger
+        serviceObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+serviceItems.forEach(item => serviceObserver.observe(item));
+serviceH3s.forEach(h3 => serviceObserver.observe(h3));
