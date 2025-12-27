@@ -1,7 +1,3 @@
-/* ===============================
-   DUBAI HUB: line + heading
-================================ */
-
 const hubSection = document.querySelector('.hub-features');
 const hubLine = document.querySelector('.hub-line');
 const heading = document.querySelector('.dubai-hub');
@@ -21,10 +17,6 @@ const hubObserver = new IntersectionObserver(
 
 if (hubSection) hubObserver.observe(hubSection);
 
-
-/* ===============================
-   MISSION / VISION
-================================ */
 
 const missionVisionItems = document.querySelectorAll('.mission-vision .fade-up');
 
@@ -46,11 +38,6 @@ const missionObserver = new IntersectionObserver(
 
 missionVisionItems.forEach(item => missionObserver.observe(item));
 
-
-/* ===============================
-   SERVICES SECTION
-================================ */
-
 const servicesSection = document.querySelector('.services');
 
 const servicesObserver = new IntersectionObserver(
@@ -66,10 +53,6 @@ const servicesObserver = new IntersectionObserver(
 
 if (servicesSection) servicesObserver.observe(servicesSection);
 
-
-/* ===============================
-   EXCELLENCE
-================================ */
 
 const excellenceItems = document.querySelectorAll('.excellence .fade-up');
 
@@ -90,11 +73,6 @@ const excellenceObserver = new IntersectionObserver(
 );
 
 excellenceItems.forEach(item => excellenceObserver.observe(item));
-
-
-/* ===============================
-   ABOUT US
-================================ */
 
 const aboutUsItems = document.querySelectorAll('.about-us .fade-up');
 
@@ -117,10 +95,6 @@ const aboutObserver = new IntersectionObserver(
 aboutUsItems.forEach(item => aboutObserver.observe(item));
 
 
-/* ===============================
-   KEY PRODUCTS
-================================ */
-
 const keyProductsItems = document.querySelectorAll('.key-products .fade-up');
 
 const productsObserver = new IntersectionObserver(
@@ -142,10 +116,6 @@ const productsObserver = new IntersectionObserver(
 keyProductsItems.forEach(item => productsObserver.observe(item));
 
 
-/* ===============================
-   OUR TEAM
-================================ */
-
 const teamItems = document.querySelectorAll('.our-team .fade-up');
 
 const teamObserver = new IntersectionObserver(
@@ -166,10 +136,6 @@ const teamObserver = new IntersectionObserver(
 
 teamItems.forEach(item => teamObserver.observe(item));
 
-
-/* ===============================
-   SERVICES (H3 + LEFT / RIGHT)
-================================ */
 
 const serviceItems = document.querySelectorAll('.servicess .fade-up');
 const serviceH3s = document.querySelectorAll('.our-service-info h3');
@@ -193,11 +159,6 @@ const serviceObserver = new IntersectionObserver(
 [...serviceItems, ...serviceH3s].forEach(el =>
   serviceObserver.observe(el)
 );
-
-
-/* ===============================
-   HEADER COLOR CHANGE
-================================ */
 
 const header = document.querySelector('.site-header');
 
