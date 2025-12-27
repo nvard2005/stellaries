@@ -20,15 +20,19 @@
     background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
-/* =========================
-   HEADER
-========================= */
 .site-header {
-    position: absolute;
+    position: fixed; /* instead of absolute */
     top: 32px;
     left: 64px;
-    z-index: 3;
+    z-index: 10;
+    transition: color 0.3s ease, background 0.3s ease;
 }
+
+/* When scrolled */
+.site-header.scrolled h2 {
+    color: #000000;
+}
+
 
 .site-header h2 {
     font-size: 14px;
@@ -37,9 +41,6 @@
     color: #e5e7eb;
 }
 
-/* =========================
-   HERO SECTION
-========================= */
 .hero {
     background: transparent;
 }
@@ -53,10 +54,17 @@
     position: relative;
     z-index: 2;
 }
+.hero-info,
+.section-video {
+    opacity: 0;
+    transform: translateX(0);
+    animation-fill-mode: forwards;
+}
+.hero-info {
+    transform: translateX(-60px);
+    animation: slideFromLeft 1s ease-out 0.2s forwards;
+}
 
-/* =========================
-   HERO TEXT
-========================= */
 .hero-info h1 {
     font-size: 72px;
     font-weight: 500;
@@ -73,9 +81,6 @@
     margin-bottom: 32px;
 }
 
-/* =========================
-   BUTTON
-========================= */
 .hero-info .services {
     background: #dc2626;
     color: #ffffff;
@@ -92,9 +97,7 @@
     background: #b91c1c;
 }
 
-/* =========================
-   VIDEO CARD
-========================= */
+
 .section-video {
     position: relative;
     width: 380px;
@@ -104,6 +107,10 @@
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
+.section-video {
+    transform: translateX(60px);
+    animation: slideFromRight 1s ease-out 0.4s forwards;
+}
 
 .section-video video {
     width: 100%;
@@ -112,9 +119,6 @@
     opacity: 0.85;
 }
 
-/* =========================
-   PLAY BUTTON
-========================= */
 .play-btn {
     position: absolute;
     inset: 0;
@@ -136,9 +140,7 @@
     margin-left: 3px;
 }
 
-/* =========================
-   VIDEO INFO
-========================= */
+
 .video-info {
     position: absolute;
     bottom: 16px;
@@ -156,9 +158,6 @@
     color: #9ca3af;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 @media (max-width: 1024px) {
     .hero-inner {
         grid-template-columns: 1fr;
@@ -185,6 +184,20 @@
         font-size: 40px;
     }
 }
+@keyframes slideFromLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .about-us-title {
     font-size: 48px;
     font-weight: 600;

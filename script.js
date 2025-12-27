@@ -11,27 +11,33 @@ const hubObserver = new IntersectionObserver(
     if (entry.isIntersecting) {
       hubLine.classList.add('draw');
       heading.classList.add('show');
-      hubObserver.disconnect(); // run once
+    } else {
+      hubLine.classList.remove('draw');
+      heading.classList.remove('show');
     }
   },
   { threshold: 0.4 }
 );
 
-hubObserver.observe(hubSection);
+if (hubSection) hubObserver.observe(hubSection);
 
 
-const missionVisionItems = document.querySelectorAll(
-  '.mission-vision .fade-up'
-);
+/* ===============================
+   MISSION / VISION
+================================ */
+
+const missionVisionItems = document.querySelectorAll('.mission-vision .fade-up');
 
 const missionObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, index) => {
+      entry.target.style.transitionDelay = `${index * 300}ms`;
+
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show');
-        }, index * 300);
-        missionObserver.unobserve(entry.target); // animate once
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+        entry.target.style.transitionDelay = '0ms';
       }
     });
   },
@@ -39,29 +45,44 @@ const missionObserver = new IntersectionObserver(
 );
 
 missionVisionItems.forEach(item => missionObserver.observe(item));
+
+
+/* ===============================
+   SERVICES SECTION
+================================ */
+
 const servicesSection = document.querySelector('.services');
 
 const servicesObserver = new IntersectionObserver(
   ([entry]) => {
     if (entry.isIntersecting) {
       servicesSection.classList.add('show');
-      servicesObserver.disconnect();
+    } else {
+      servicesSection.classList.remove('show');
     }
   },
   { threshold: 0.3 }
 );
 
-servicesObserver.observe(servicesSection);
+if (servicesSection) servicesObserver.observe(servicesSection);
+
+
+/* ===============================
+   EXCELLENCE
+================================ */
+
 const excellenceItems = document.querySelectorAll('.excellence .fade-up');
 
 const excellenceObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, index) => {
+      entry.target.style.transitionDelay = `${index * 200}ms`;
+
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show');
-        }, index * 200); // stagger by 200ms per item
-        excellenceObserver.unobserve(entry.target); // animate once
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+        entry.target.style.transitionDelay = '0ms';
       }
     });
   },
@@ -69,16 +90,24 @@ const excellenceObserver = new IntersectionObserver(
 );
 
 excellenceItems.forEach(item => excellenceObserver.observe(item));
+
+
+/* ===============================
+   ABOUT US
+================================ */
+
 const aboutUsItems = document.querySelectorAll('.about-us .fade-up');
 
 const aboutObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, index) => {
+      entry.target.style.transitionDelay = `${index * 200}ms`;
+
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show');
-        }, index * 200); // stagger 200ms per element
-        aboutObserver.unobserve(entry.target); // animate only once
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+        entry.target.style.transitionDelay = '0ms';
       }
     });
   },
@@ -86,16 +115,24 @@ const aboutObserver = new IntersectionObserver(
 );
 
 aboutUsItems.forEach(item => aboutObserver.observe(item));
+
+
+/* ===============================
+   KEY PRODUCTS
+================================ */
+
 const keyProductsItems = document.querySelectorAll('.key-products .fade-up');
 
 const productsObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, index) => {
+      entry.target.style.transitionDelay = `${index * 200}ms`;
+
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show'); // triggers fade-up AND underline
-        }, index * 200);
-        productsObserver.unobserve(entry.target); // animate only once
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+        entry.target.style.transitionDelay = '0ms';
       }
     });
   },
@@ -103,17 +140,24 @@ const productsObserver = new IntersectionObserver(
 );
 
 keyProductsItems.forEach(item => productsObserver.observe(item));
- // Select all elements with fade-up in our-team section
+
+
+/* ===============================
+   OUR TEAM
+================================ */
+
 const teamItems = document.querySelectorAll('.our-team .fade-up');
 
 const teamObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, index) => {
+      entry.target.style.transitionDelay = `${index * 200}ms`;
+
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show');
-        }, index * 200); // stagger animation by 200ms
-        teamObserver.unobserve(entry.target); // animate once
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+        entry.target.style.transitionDelay = '0ms';
       }
     });
   },
@@ -121,29 +165,46 @@ const teamObserver = new IntersectionObserver(
 );
 
 teamItems.forEach(item => teamObserver.observe(item));
-// H2 + Left + Right fade-up observer
-const serviceSection = document.querySelector('.servicess');
+
+
+/* ===============================
+   SERVICES (H3 + LEFT / RIGHT)
+================================ */
+
 const serviceItems = document.querySelectorAll('.servicess .fade-up');
 const serviceH3s = document.querySelectorAll('.our-service-info h3');
 
 const serviceObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry, index) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.classList.add('show');
+      entry.target.style.transitionDelay = `${index * 200}ms`;
 
-          // For H3 underline
-          if(entry.target.tagName === "H3"){
-            entry.target.classList.add('show');
-          }
-        }, index * 200); // stagger
-        serviceObserver.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+        entry.target.style.transitionDelay = '0ms';
       }
     });
   },
   { threshold: 0.3 }
 );
 
-serviceItems.forEach(item => serviceObserver.observe(item));
-serviceH3s.forEach(h3 => serviceObserver.observe(h3));
+[...serviceItems, ...serviceH3s].forEach(el =>
+  serviceObserver.observe(el)
+);
+
+
+/* ===============================
+   HEADER COLOR CHANGE
+================================ */
+
+const header = document.querySelector('.site-header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
